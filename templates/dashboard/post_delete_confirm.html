@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{%  load crispy_forms_tags %}
+
+
+{% block content %}
+<h1 class ="text-center text-dark">Are You Sure You Want to Delete This Post {{post.title}}</h1>
+<form style="width:50% ; margin : auto" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form | crispy}}
+
+<div class="d-flex justify-content-center align-items-center m-5">
+    <button class="btn btn-success mx-5" type="submit">YES, delete</button>
+    <a href="{% url 'posts' %}" class="btn btn-danger mx-5">Cancel</a>
+</div>
+</form>
+{% endblock content %}
+    
